@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.labelExpenseName = new System.Windows.Forms.Label();
             this.labelExpenseAmount = new System.Windows.Forms.Label();
             this.labelAssosciatedReport = new System.Windows.Forms.Label();
@@ -37,6 +38,8 @@
             this.labelExpenseInstructions = new System.Windows.Forms.Label();
             this.buttonExpenseConfirm = new System.Windows.Forms.Button();
             this.buttonExpenseCancel = new System.Windows.Forms.Button();
+            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
             // 
             // labelExpenseName
@@ -71,6 +74,8 @@
             // 
             // comboBoxAssociatedReport
             // 
+            this.comboBoxAssociatedReport.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.comboBoxAssociatedReport.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.comboBoxAssociatedReport.FormattingEnabled = true;
             this.comboBoxAssociatedReport.Location = new System.Drawing.Point(163, 100);
             this.comboBoxAssociatedReport.Name = "comboBoxAssociatedReport";
@@ -83,6 +88,8 @@
             this.textBoxExpenseName.Name = "textBoxExpenseName";
             this.textBoxExpenseName.Size = new System.Drawing.Size(100, 20);
             this.textBoxExpenseName.TabIndex = 4;
+            this.textBoxExpenseName.Validating += new System.ComponentModel.CancelEventHandler(this.textBoxExpenseName_Validating);
+            this.textBoxExpenseName.Validated += new System.EventHandler(this.textBoxExpenseName_Validated);
             // 
             // textBoxExpenseAmount
             // 
@@ -121,6 +128,10 @@
             this.buttonExpenseCancel.UseVisualStyleBackColor = true;
             this.buttonExpenseCancel.Click += new System.EventHandler(this.buttonExpenseCancel_Click);
             // 
+            // errorProvider1
+            // 
+            this.errorProvider1.ContainerControl = this;
+            // 
             // ExpenseEntry
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -139,6 +150,7 @@
             this.MinimumSize = new System.Drawing.Size(423, 225);
             this.Name = "ExpenseEntry";
             this.Text = "Expense Entry";
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -155,5 +167,6 @@
         private System.Windows.Forms.Label labelExpenseInstructions;
         private System.Windows.Forms.Button buttonExpenseConfirm;
         private System.Windows.Forms.Button buttonExpenseCancel;
+        private System.Windows.Forms.ErrorProvider errorProvider1;
     }
 }
